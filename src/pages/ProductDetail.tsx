@@ -9,7 +9,10 @@ import { buildCustomizeSummary, buildProductOrderSummary } from '../utils/orderS
 export function ProductDetail() {
   const { slug } = useParams();
   const [params, setParams] = useSearchParams();
-  const product = slug ? getLiveProducts().find((p) => p.slug === slug) : undefined;
+  const product = useMemo(
+    () => (slug ? getLiveProducts().find((p) => p.slug === slug) : undefined),
+    [slug],
+  );
   const mode = params.get('customize') === '1' ? 'customize' : 'listed';
 
   const [material, setMaterial] = useState('');
@@ -24,7 +27,7 @@ export function ProductDetail() {
     setColor(product.colors[0] ?? '');
     setSizeId(product.sizes[0]?.id ?? '');
     setQuantity(1);
-  }, [product]);
+  }, [product?.id]);
 
   const size = useMemo(
     () => product?.sizes.find((s) => s.id === sizeId) ?? product?.sizes[0],

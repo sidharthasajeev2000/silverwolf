@@ -80,7 +80,7 @@ export function getLiveProducts(): Product[] {
   if (Array.isArray(overlay)) {
     return overlay;
   }
-  return seedProducts.map((p) => ({ ...p, sizes: p.sizes.map((s) => ({ ...s })) }));
+  return seedProducts;
 }
 
 export function saveProducts(products: Product[]): void {
