@@ -6,7 +6,7 @@ export const siteConfig = {
   domain: 'silverwolf.in',
   siteUrl: 'https://silverwolf.in',
   /** Edit this mailto address — used when no form endpoint is configured */
-  orderEmail: 'sidhartha@example.com',
+  orderEmail: 'admin@silverwolf.in',
   leadTimeReadyMade: '5–10 business days',
   leadTimeCustom: '7–21 business days (depends on size & queue)',
   shippingNote: 'Ships worldwide. Shipping cost calculated when invoiced.',

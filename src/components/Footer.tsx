@@ -34,11 +34,12 @@ export function Footer() {
             <Link to="/about">About</Link>
             <Link to="/faq">FAQ</Link>
             <Link to="/policies">Policies</Link>
+            <a href={`mailto:${siteConfig.orderEmail}`}>Contact</a>
           </div>
         </div>
         <div className="footer-bottom">
           <span>© {new Date().getFullYear()} {siteConfig.shopName}</span>
-          <span>Built as a static JAMstack demo — no card payments on-site</span>
+          <span>Orders to {siteConfig.orderEmail} — no card payments on-site</span>
         </div>
       </div>
     </footer>

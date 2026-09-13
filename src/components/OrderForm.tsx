@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from 'react';
+import { siteConfig } from '../data/config';
 import { submitOrder, type OrderPayload } from '../utils/orderSubmit';
 
 interface Props {
@@ -93,8 +94,7 @@ export function OrderForm({ buildPayload, submitLabel = 'Submit order request', 
           </a>
         </div>
         <p className="hint" style={{ marginTop: '0.75rem' }}>
-          Tip: set <code>VITE_FORM_ENDPOINT</code> in <code>.env</code> for automatic submit
-          (Formspree / Web3Forms). Edit the mailto address in <code>src/data/config.ts</code>.
+          This draft goes to {siteConfig.orderEmail}.
         </p>
       </div>
     );

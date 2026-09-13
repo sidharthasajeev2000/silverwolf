@@ -28,8 +28,9 @@ export function About() {
           </p>
           <p>{siteConfig.shippingNote}</p>
           <p>
-            Questions? See the <Link to="/faq">FAQ</Link> or{' '}
-            <Link to="/policies">Policies</Link>. Ready to print?{' '}
+            Questions? Email{' '}
+            <a href={`mailto:${siteConfig.orderEmail}`}>{siteConfig.orderEmail}</a>, see the{' '}
+            <Link to="/faq">FAQ</Link>, or <Link to="/policies">Policies</Link>. Ready to print?{' '}
             <Link to="/shop">Browse the shop</Link> or{' '}
             <Link to="/custom">start a custom order</Link>.
           </p>
