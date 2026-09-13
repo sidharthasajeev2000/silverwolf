@@ -34,7 +34,7 @@ export function Footer() {
             <Link to="/about">About</Link>
             <Link to="/faq">FAQ</Link>
             <Link to="/policies">Policies</Link>
-            <a href={`mailto:${siteConfig.orderEmail}`}>Contact</a>
+            <Link to="/contact">Contact</Link>
           </div>
         </div>
         <div className="footer-bottom">

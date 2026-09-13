@@ -3,6 +3,10 @@
   <head>
     <script>
       (function () {
+        if (location.protocol === 'http:' && location.hostname === 'silverwolf.in') {
+          location.replace('https://silverwolf.in' + location.pathname + location.search + location.hash);
+          return;
+        }
         var project = location.hostname === 'sidharthasajeev2000.github.io';
         document.write('<base href="' + (project ? '/silverwolf/' : '/') + '">');
       })();
@@ -14,7 +18,24 @@
       name="description"
       content="Silverwolf — 3D-printed figurines, cosplay props, and custom STL prints. Order requests only."
     />
-    <meta name="theme-color" content="#0c0d10" />
+    <meta name="theme-color" content="#000000" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Silverwolf" />
+    <meta property="og:title" content="Silverwolf — 3D Print Shop" />
+    <meta
+      property="og:description"
+      content="3D-printed figurines, cosplay props, and custom STL prints. Browse the catalog or upload a model — order requests only."
+    />
+    <meta property="og:url" content="https://silverwolf.in/" />
+    <meta property="og:image" content="https://silverwolf.in/logo-mark.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Silverwolf — 3D Print Shop" />
+    <meta
+      name="twitter:description"
+      content="3D-printed figurines, cosplay props, and custom STL prints. Order requests only."
+    />
+    <meta name="twitter:image" content="https://silverwolf.in/logo-mark.jpg" />
+    <link rel="canonical" href="https://silverwolf.in/" />
     <title>Silverwolf — 3D Print Shop</title>
   </head>
   <body>

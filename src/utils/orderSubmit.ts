@@ -2,7 +2,7 @@ import { formEndpoint, siteConfig } from '../data/config';
 import { saveIncomingOrder } from './store';
 
 export interface OrderPayload {
-  type: 'product-request' | 'custom-print' | 'customize-request';
+  type: 'product-request' | 'custom-print' | 'customize-request' | 'contact';
   name: string;
   email: string;
   shippingCountry: string;

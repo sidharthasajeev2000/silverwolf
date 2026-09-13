@@ -142,6 +142,7 @@ function OrderCard({
   const p = order.payload;
   const isCustom = p.type === 'custom-print';
   const isCustomize = p.type === 'customize-request';
+  const isContact = p.type === 'contact';
   const fileName = asStr(p.fileName);
   const fileLink = asStr(p.fileLink);
   const material = asStr(p.material);
@@ -160,9 +161,9 @@ function OrderCard({
       <div className="admin-order-top">
         <div>
           <span
-            className={`admin-type-badge ${isCustom ? 'custom' : isCustomize ? 'customize' : 'catalog'}`}
+            className={`admin-type-badge ${isCustom ? 'custom' : isCustomize ? 'customize' : isContact ? 'customize' : 'catalog'}`}
           >
-            {isCustom ? 'Custom print' : isCustomize ? 'Customize' : 'Catalog'}
+            {isCustom ? 'Custom print' : isCustomize ? 'Customize' : isContact ? 'Contact' : 'Catalog'}
           </span>
           <time dateTime={order.createdAt}>{new Date(order.createdAt).toLocaleString()}</time>
         </div>
@@ -191,10 +192,16 @@ function OrderCard({
         <div>
           <dt>Customer</dt>
           <dd>
-            {p.name} · <a href={`mailto:${p.email}`}>{p.email}</a> · {p.shippingCountry}
+            {p.name} · <a href={`mailto:${p.email}`}>{p.email}</a>
+            {p.shippingCountry && p.shippingCountry !== 'n/a' ? ` · ${p.shippingCountry}` : ''}
           </dd>
         </div>
-        {isCustomize ? (
+        {isContact ? (
+          <div>
+            <dt>Message</dt>
+            <dd>{p.details || '—'}</dd>
+          </div>
+        ) : isCustomize ? (
           <>
             <div>
               <dt>Product</dt>
@@ -257,7 +264,7 @@ function OrderCard({
             </div>
           </>
         )}
-        {p.details ? (
+        {p.details && !isContact && !isCustomize ? (
           <div>
             <dt>Notes</dt>
             <dd>{asStr(p.details)}</dd>

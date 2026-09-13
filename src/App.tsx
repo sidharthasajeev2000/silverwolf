@@ -6,6 +6,7 @@ import { Shop } from './pages/Shop';
 import { ProductDetail } from './pages/ProductDetail';
 import { CustomPrint } from './pages/CustomPrint';
 import { About } from './pages/About';
+import { Contact } from './pages/Contact';
 import { FAQ } from './pages/FAQ';
 import { Policies } from './pages/Policies';
 import { NotFound } from './pages/NotFound';
@@ -42,6 +43,7 @@ export default function App() {
           <Route path="shop/:slug" element={<ProductDetail />} />
           <Route path="custom" element={<CustomPrint />} />
           <Route path="about" element={<About />} />
+          <Route path="contact" element={<Contact />} />
           <Route path="faq" element={<FAQ />} />
           <Route path="policies" element={<Policies />} />
           <Route path="home" element={<Navigate to="/" replace />} />

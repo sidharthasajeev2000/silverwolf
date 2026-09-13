@@ -166,6 +166,11 @@ export function CustomPrint() {
             </h2>
             <OrderForm
               submitLabel="Submit custom order request"
+              validate={() =>
+                file || fileLink.trim()
+                  ? null
+                  : 'Upload an STL or paste a file link so we can print something.'
+              }
               buildPayload={({ name, email, shippingCountry, notes }) => {
                 const parseNote =
                   parse && !parse.ok ? parse.message : file && !parse ? 'File attached but not parsed' : undefined;

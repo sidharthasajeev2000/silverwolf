@@ -39,28 +39,23 @@ npm run dev
 
 | What | File |
 |------|------|
-| Products (9–12 placeholders) | `src/data/products.ts` |
+| Products (catalog seed) | `src/data/products.ts` |
 | Filament $/g, markup, minimum, densities | `src/data/pricing.ts` |
-| Shop name, mailto fallback email | `src/data/config.ts` |
+| Shop name, order/contact email | `src/data/config.ts` |
 | FAQ copy | `src/data/faq.ts` |
 
 Product art is CSS/SVG placeholders in `src/components/ProductArt.tsx` — no external image CDN.
 
 ## Order form endpoint (free)
 
-By default there is **no** backend. Submit shows a **copyable order summary** + `mailto:` draft.
+Orders and contact messages POST to **FormSubmit** at
+`https://formsubmit.co/ajax/admin@silverwolf.in` (Titan inbox). Override with
+`VITE_FORM_ENDPOINT` in `.env` if needed. On network failure, the UI offers a
+mailto backup to the same address.
 
-1. Create a free form at [Formspree](https://formspree.io) or [Web3Forms](https://web3forms.com).
-2. Copy `.env.example` → `.env` (never commit `.env`).
-3. Set:
+Admin inbox also saves every submit in **this browser** (`localStorage`).
 
-```env
-VITE_FORM_ENDPOINT=https://formspree.io/f/your-id
-```
-
-Orders POST JSON to that URL. Edit the fallback address in `src/data/config.ts` (`orderEmail`).
-
-**Do not put API secrets in the repo.** Only `VITE_*` values are exposed to the browser; treat form endpoints as public.
+**Do not put API secrets in the repo.** Only `VITE_*` values are exposed to the browser.
 
 ## Custom STL quoting
 

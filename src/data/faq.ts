@@ -34,6 +34,10 @@ export const faqItems: FaqItem[] = [
   },
   {
     q: 'What happens after I submit an order request?',
-    a: 'You will receive a confirmation path (email/form). Sidhartha reviews the request, confirms feasibility, and sends an invoice with final pricing and shipping. Payment is arranged at that stage — no card is charged on this site.',
+    a: 'Your request is emailed to admin@silverwolf.in and saved in the shop admin inbox. Sidhartha reviews it, confirms feasibility, and sends an invoice with final pricing and shipping. Payment is arranged at that stage — no card is charged on this site.',
+  },
+  {
+    q: 'How do I contact you without placing an order?',
+    a: 'Use the Contact page. Messages go to the same admin@silverwolf.in inbox as order requests.',
   },
 ];

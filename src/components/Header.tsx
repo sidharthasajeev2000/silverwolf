@@ -8,6 +8,7 @@ const links = [
   { to: '/shop', label: 'Shop' },
   { to: '/custom', label: 'Custom Print' },
   { to: '/about', label: 'About' },
+  { to: '/contact', label: 'Contact' },
   { to: '/faq', label: 'FAQ' },
   { to: '/policies', label: 'Policies' },
 ];

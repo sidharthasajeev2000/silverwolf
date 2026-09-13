@@ -49,11 +49,20 @@ export function Shop() {
           {active !== 'All' ? ` in ${active}` : ''}.
         </p>
 
-        <div className="product-grid">
-          {items.map((p) => (
-            <ProductCard key={p.id} product={p} />
-          ))}
-        </div>
+        {items.length === 0 ? (
+          <div className="alert alert-warn" role="status">
+            <p style={{ margin: 0 }}>No products in this collection yet.</p>
+            <button type="button" className="btn btn-ghost" style={{ marginTop: '0.75rem' }} onClick={() => setFilter('All')}>
+              Show all products
+            </button>
+          </div>
+        ) : (
+          <div className="product-grid">
+            {items.map((p) => (
+              <ProductCard key={p.id} product={p} />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

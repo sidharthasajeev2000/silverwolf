@@ -201,8 +201,8 @@ export function ProductDetail() {
               <div className="order-panel">
                 <h2>Buy premade</h2>
                 <p className="hint" style={{ marginBottom: '0.75rem' }}>
-                  Same toy as the photo. We invoice you, or you can buy the Amazon listing if one is
-                  linked.
+                  Same piece as listed. Submit a request and we invoice you — nothing is charged on
+                  this site.
                 </p>
                 {product.amazonUrl ? (
                   <p style={{ marginBottom: '1rem' }}>

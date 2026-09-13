@@ -80,8 +80,8 @@ export function OrderForm({ buildPayload, submitLabel = 'Submit order request', 
   if (status === 'fallback') {
     return (
       <div className="alert alert-success" role="status">
-        <strong>Order summary ready.</strong> No form endpoint is configured, so nothing was
-        uploaded. Copy the summary or open your email client.
+        <strong>Could not reach the form service.</strong> Copy the summary or open your email
+        client as a backup — nothing was charged.
         <div style={{ marginTop: '1rem' }}>
           <pre className="summary-box">{summary}</pre>
         </div>
