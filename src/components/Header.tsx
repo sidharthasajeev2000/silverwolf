@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { siteConfig } from '../data/config';
+import { asset } from '../utils/asset';
 
 const links = [
   { to: '/', label: 'Home', end: true },
@@ -20,7 +21,7 @@ export function Header() {
     <header className="site-header">
       <div className="container header-inner">
         <Link to="/" className="logo" onClick={close}>
-          <img className="logo-mark" src="/logo.png" alt="" width={40} height={40} />
+          <img className="logo-mark" src={asset("logo.png")} alt="" width={40} height={40} />
           {siteConfig.shopName}
         </Link>
 

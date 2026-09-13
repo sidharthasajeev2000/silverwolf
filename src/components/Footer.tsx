@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { siteConfig } from '../data/config';
+import { asset } from '../utils/asset';
 
 export function Footer() {
   return (
@@ -8,7 +9,7 @@ export function Footer() {
         <div className="footer-grid">
           <div>
             <div className="footer-brand">
-              <img src="/logo.png" alt="" width={36} height={36} />
+              <img src={asset("logo.png")} alt="" width={36} height={36} />
               Silver<span>wolf</span>
             </div>
             <p className="footer-copy">

@@ -1,5 +1,6 @@
-import { NavLink, Outlet, useNavigate } from 'react-router-dom';
+import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { logout } from '../auth';
+import { asset } from '../../utils/asset';
 import '../admin.css';
 
 const links = [
@@ -21,7 +22,7 @@ export function AdminLayout() {
     <div className="admin-shell">
       <aside className="admin-sidebar">
         <div className="admin-brand">
-          <img src="/logo.png" alt="" width={36} height={36} />
+          <img src={asset("logo.png")} alt="" width={36} height={36} />
           <div>
             <strong>Silverwolf</strong>
             <span>Admin</span>
@@ -35,9 +36,9 @@ export function AdminLayout() {
           ))}
         </nav>
         <div className="admin-sidebar-foot">
-          <a href="/" className="admin-nav-link">
+          <Link to="/" className="admin-nav-link">
             View shop
-          </a>
+          </Link>
           <button type="button" className="admin-nav-link admin-logout" onClick={onLogout}>
             Log out
           </button>

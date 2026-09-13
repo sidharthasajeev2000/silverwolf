@@ -1,4 +1,5 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { routerBasename } from './utils/asset';
 import { Layout } from './components/Layout';
 import { Home } from './pages/Home';
 import { Shop } from './pages/Shop';
@@ -18,7 +19,7 @@ import { AdminPricing } from './admin/pages/AdminPricing';
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={routerBasename()}>
       <Routes>
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route
