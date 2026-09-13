@@ -71,8 +71,8 @@ export function OrderForm({ buildPayload, submitLabel = 'Submit order request', 
   if (status === 'sent') {
     return (
       <div className="alert alert-success" role="status">
-        <strong>Request sent.</strong> Check your email for any follow-up. You will receive an
-        invoice before payment — nothing was charged.
+        <strong>Request sent.</strong> We emailed {siteConfig.orderEmail} and will follow up
+        with an invoice — nothing was charged.
       </div>
     );
   }
@@ -155,7 +155,7 @@ export function OrderForm({ buildPayload, submitLabel = 'Submit order request', 
       )}
       {status === 'error' && (
         <div className="alert alert-error" style={{ marginBottom: '1rem' }}>
-          Could not reach the form endpoint. Check <code>VITE_FORM_ENDPOINT</code> or try again.
+          Could not send the request. Try again in a moment.
         </div>
       )}
       <button type="submit" className="btn btn-primary" disabled={status === 'sending'}>

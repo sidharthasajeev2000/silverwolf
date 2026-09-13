@@ -32,13 +32,30 @@ export async function submitOrder(payload: OrderPayload): Promise<SubmitResult> 
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
-          ...payload,
-          subject: `[Silverwolf] ${payload.type} — ${payload.name}`,
+          name: payload.name,
+          email: payload.email,
+          message: payload.summary,
+          type: payload.type,
+          shippingCountry: payload.shippingCountry,
+          _subject: `[Silverwolf] ${payload.type} — ${payload.name}`,
+          _captcha: 'false',
+          _template: 'box',
         }),
       });
-      if (!res.ok) {
-        const text = await res.text().catch(() => '');
-        return { mode: 'endpoint', ok: false, error: text || `Request failed (${res.status})` };
+      const data = (await res.json().catch(() => null)) as
+        | { success?: boolean | string; message?: string }
+        | null;
+      const ok =
+        res.ok &&
+        data != null &&
+        data.success !== false &&
+        data.success !== 'false';
+      if (!ok) {
+        return {
+          mode: 'endpoint',
+          ok: false,
+          error: data?.message || `Request failed (${res.status})`,
+        };
       }
       return { mode: 'endpoint', ok: true };
     } catch (e) {
