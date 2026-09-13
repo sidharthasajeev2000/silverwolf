@@ -1,0 +1,453 @@
+/* Admin shell — black + neon red */
+.admin-shell {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  min-height: 100vh;
+  background: var(--bg-deep);
+}
+
+.admin-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.25rem 1rem;
+  border-right: 1px solid var(--border);
+  background: #050505;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.admin-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.25rem 0.5rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.admin-brand img {
+  border-radius: 6px;
+  box-shadow: 0 0 12px var(--ember-glow);
+}
+
+.admin-brand strong {
+  display: block;
+  font-size: 0.95rem;
+}
+
+.admin-brand span {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--ember);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.admin-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.admin-nav-link {
+  display: block;
+  padding: 0.55rem 0.75rem;
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  text-decoration: none;
+  border: 1px solid transparent;
+  background: transparent;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.admin-nav-link:hover {
+  color: var(--text);
+  background: var(--bg-elevated);
+}
+
+.admin-nav-link.active {
+  color: var(--text);
+  border-color: var(--ember-dim);
+  background: rgba(255, 26, 26, 0.08);
+  box-shadow: inset 2px 0 0 var(--ember);
+}
+
+.admin-sidebar-foot {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  border-top: 1px solid var(--border);
+  padding-top: 0.75rem;
+}
+
+.admin-logout {
+  color: var(--ember-hot) !important;
+}
+
+.admin-main {
+  padding: 1.75rem 1.5rem 3rem;
+  min-width: 0;
+}
+
+.admin-page-header {
+  margin-bottom: 1.5rem;
+}
+
+.admin-page-header h1 {
+  margin-bottom: 0.25rem;
+}
+
+.admin-page-header p {
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.admin-page-header-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.admin-header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.admin-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.admin-stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.25rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.admin-stat-card:hover {
+  border-color: var(--ember-dim);
+  box-shadow: 0 0 20px rgba(255, 26, 26, 0.12);
+  color: inherit;
+}
+
+.admin-stat-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.admin-stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--ember);
+}
+
+.admin-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.admin-empty {
+  padding: 2rem;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-lg);
+  color: var(--text-muted);
+  background: var(--bg-card);
+}
+
+.admin-empty p:last-child {
+  margin-bottom: 0;
+}
+
+.admin-order-list,
+.admin-product-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.admin-order-card,
+.admin-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+}
+
+.admin-panel {
+  margin-bottom: 1.5rem;
+}
+
+.admin-panel h2 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.admin-order-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  align-items: flex-start;
+}
+
+.admin-order-top time {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.admin-type-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+}
+
+.admin-type-badge.custom {
+  color: var(--ember);
+  border-color: var(--ember-dim);
+  background: rgba(255, 26, 26, 0.1);
+}
+
+.admin-type-badge.catalog {
+  color: var(--steel-bright);
+}
+
+.admin-order-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.admin-order-actions select {
+  background: var(--bg-elevated);
+  color: var(--text);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  padding: 0.4rem 0.6rem;
+}
+
+.admin-danger-btn {
+  color: var(--ember-hot) !important;
+  border-color: var(--ember-dim) !important;
+}
+
+.admin-order-meta {
+  margin: 0 0 0.75rem;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.admin-order-meta > div {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.admin-order-meta dt {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+}
+
+.admin-order-meta dd {
+  margin: 0;
+  color: var(--text);
+  word-break: break-word;
+}
+
+.admin-summary summary {
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.admin-summary pre {
+  margin: 0.75rem 0 0;
+  padding: 0.75rem;
+  background: #000;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 0.8rem;
+  color: var(--steel-bright);
+}
+
+.admin-product-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 1rem 1.1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.admin-product-row strong {
+  display: block;
+}
+
+.admin-product-row .hint {
+  margin: 0.2rem 0 0;
+}
+
+.admin-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.6rem;
+  color: var(--text-muted);
+}
+
+.admin-login-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  background:
+    radial-gradient(ellipse at top, rgba(255, 26, 26, 0.12), transparent 55%),
+    var(--bg-deep);
+}
+
+.admin-login-card {
+  width: min(100%, 380px);
+  padding: 2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+.admin-login-brand {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.admin-login-brand img {
+  margin: 0 auto 0.75rem;
+  border-radius: 8px;
+  box-shadow: 0 0 18px var(--ember-glow);
+}
+
+.admin-login-brand h1 {
+  font-size: 1.35rem;
+  margin-bottom: 0.35rem;
+}
+
+.admin-login-brand p {
+  color: var(--text-muted);
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 800px) {
+  .admin-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-sidebar {
+    position: static;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .admin-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+/* Shared chip style (pages.css not loaded on admin routes) */
+.admin-chips .filter-btn {
+  appearance: none;
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  font: inherit;
+  cursor: pointer;
+}
+
+.admin-chips .filter-btn:hover {
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+
+.admin-chips .filter-btn[aria-pressed='true'] {
+  color: var(--text);
+  border-color: var(--ember);
+  background: rgba(255, 26, 26, 0.12);
+  box-shadow: 0 0 12px rgba(255, 26, 26, 0.2);
+}
+
+.admin-thumb {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 6px;
+  background: #111;
+}
+
+.admin-thumb-empty {
+  display: grid;
+  place-items: center;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  border: 1px dashed var(--border);
+}
+
+.admin-photo-preview {
+  max-width: 220px;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  margin-bottom: 1rem;
+}
+
+.admin-type-badge.customize {
+  color: #fff;
+  background: #5a0010;
+  border: 1px solid var(--ember);
+}
+
+.admin-product-row {
+  display: flex;
+  gap: 0.85rem;
+  align-items: center;
+}
