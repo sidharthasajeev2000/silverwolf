@@ -84,7 +84,12 @@ export function ProductDetail() {
                 Prop / cosplay replica only — not a functional weapon.
               </p>
             ) : null}
-            <p className="detail-price price">{formatUsd(unitPrice)}</p>
+            <p className="detail-price price">
+              {formatUsd(unitPrice * quantity)}
+              {quantity > 1 ? (
+                <span className="hint"> ({quantity} × {formatUsd(unitPrice)})</span>
+              ) : null}
+            </p>
 
             <div className="variant-group">
               <label id="mat-label">Material</label>
@@ -138,16 +143,37 @@ export function ProductDetail() {
               </div>
             </div>
 
-            <div className="field" style={{ maxWidth: 120 }}>
+            <div className="field">
               <label htmlFor="qty">Quantity</label>
-              <input
-                id="qty"
-                type="number"
-                min={1}
-                max={50}
-                value={quantity}
-                onChange={(e) => setQuantity(Math.max(1, Number(e.target.value) || 1))}
-              />
+              <div className="qty-stepper">
+                <button
+                  type="button"
+                  className="qty-btn"
+                  aria-label="Decrease quantity"
+                  onClick={() => setQuantity((q) => Math.max(1, q - 1))}
+                >
+                  −
+                </button>
+                <input
+                  id="qty"
+                  type="text"
+                  inputMode="numeric"
+                  value={quantity}
+                  onChange={(e) => {
+                    const n = parseInt(e.target.value.replace(/\D/g, ''), 10);
+                    if (Number.isNaN(n)) return;
+                    setQuantity(Math.min(50, Math.max(1, n)));
+                  }}
+                />
+                <button
+                  type="button"
+                  className="qty-btn"
+                  aria-label="Increase quantity"
+                  onClick={() => setQuantity((q) => Math.min(50, q + 1))}
+                >
+                  +
+                </button>
+              </div>
             </div>
 
             <div className="buy-paths" role="tablist" aria-label="How do you want this toy">
