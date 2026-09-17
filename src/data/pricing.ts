@@ -4,12 +4,12 @@
  * Price = max(minimum, grams × filamentPerGram × markup)
  */
 export const pricing = {
-  /** USD per gram of filament (material cost basis) */
-  filamentPerGram: 0.04,
+  /** INR per gram of filament (material cost basis) */
+  filamentPerGram: 3.2,
   /** Multiplier over material cost (labor, machine wear, profit) */
   markup: 3.5,
-  /** Floor price for any custom order quote (USD) */
-  minimum: 12,
+  /** Floor price for any custom order quote (INR) */
+  minimum: 999,
   /** Default density g/cm³ — PLA ~1.24 */
   densityByMaterial: {
     PLA: 1.24,

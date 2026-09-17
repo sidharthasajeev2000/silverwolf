@@ -3,7 +3,7 @@ export type Collection = 'Figurines' | 'Cosplay' | 'Props';
 export interface ProductVariant {
   id: string;
   label: string;
-  /** Price adjustment in USD relative to base */
+  /** Price adjustment in INR relative to base */
   priceDelta: number;
 }
 
@@ -37,7 +37,7 @@ export const products: Product[] = [
     slug: 'ember-wolf-figurine',
     name: 'Ember Wolf Figurine',
     collection: 'Figurines',
-    price: 28,
+    price: 2240,
     shortDescription: 'Howling wolf on a rocky base — shop mascot tribute.',
     description:
       'A detailed 3D-printed wolf mid-howl, perched on a cracked stone base with ember-glow paint accents available on request. Printed in durable PLA; optional PETG for outdoor display.',
@@ -48,8 +48,8 @@ export const products: Product[] = [
     colors: ['Matte Black', 'Silver', 'Ember Red', 'Bone White'],
     sizes: [
       { id: 's', label: '12 cm', priceDelta: 0 },
-      { id: 'm', label: '18 cm', priceDelta: 12 },
-      { id: 'l', label: '25 cm', priceDelta: 28 },
+      { id: 'm', label: '18 cm', priceDelta: 960 },
+      { id: 'l', label: '25 cm', priceDelta: 2240 },
     ],
   },
   {
@@ -57,7 +57,7 @@ export const products: Product[] = [
     slug: 'shadow-ronin-bust',
     name: 'Shadow Ronin Bust',
     collection: 'Figurines',
-    price: 36,
+    price: 2880,
     shortDescription: 'Masked warrior bust with layered armor detail.',
     description:
       'Desktop-scale ronin bust with intricate armor plates and a removable mask option. Great for painting or as a display piece out of the box in gunmetal PLA.',
@@ -68,7 +68,7 @@ export const products: Product[] = [
     colors: ['Gunmetal', 'Matte Black', 'Bone White'],
     sizes: [
       { id: 's', label: '10 cm', priceDelta: 0 },
-      { id: 'm', label: '15 cm', priceDelta: 14 },
+      { id: 'm', label: '15 cm', priceDelta: 1120 },
     ],
   },
   {
@@ -76,7 +76,7 @@ export const products: Product[] = [
     slug: 'crystal-dragonette',
     name: 'Crystal Dragonette',
     collection: 'Figurines',
-    price: 42,
+    price: 3360,
     shortDescription: 'Tiny dragon coiled around a crystal shard.',
     description:
       'Whimsical dragonette with wing membranes and a crystalline perch. Fine-detail friendly — Resin recommended for sharp scales; PLA available for a bolder silhouette.',
@@ -87,7 +87,7 @@ export const products: Product[] = [
     colors: ['Forest Green', 'Silver', 'Ember Red', 'Bone White'],
     sizes: [
       { id: 's', label: '8 cm', priceDelta: 0 },
-      { id: 'm', label: '14 cm', priceDelta: 16 },
+      { id: 'm', label: '14 cm', priceDelta: 1280 },
     ],
   },
   {
@@ -95,7 +95,7 @@ export const products: Product[] = [
     slug: 'void-stalker-mini',
     name: 'Void Stalker Mini',
     collection: 'Figurines',
-    price: 18,
+    price: 1440,
     shortDescription: 'Tabletop-ready creature mini (~32 mm scale).',
     description:
       'A hunched void creature for RPG sessions or shelf dioramas. Sold unpainted. Base included. Multiple copies available for squads.',
@@ -105,7 +105,7 @@ export const products: Product[] = [
     colors: ['Matte Black', 'Gunmetal', 'Bone White'],
     sizes: [
       { id: '32', label: '32 mm', priceDelta: 0 },
-      { id: '54', label: '54 mm', priceDelta: 8 },
+      { id: '54', label: '54 mm', priceDelta: 640 },
     ],
   },
   {
@@ -113,7 +113,7 @@ export const products: Product[] = [
     slug: 'replica-katana-display',
     name: 'Replica Katana (Display Prop)',
     collection: 'Cosplay',
-    price: 65,
+    price: 5200,
     shortDescription: 'Cosplay/display replica — not a real weapon.',
     description:
       'Lightweight 3D-printed replica katana for cosplay and wall display. Blunt tip, plastic construction, decorative only. Includes optional wall mount pegs. This is a prop replica, never a functional blade.',
@@ -124,7 +124,7 @@ export const products: Product[] = [
     colors: ['Matte Black', 'Silver', 'Gunmetal', 'Ember Red'],
     sizes: [
       { id: 'full', label: '~100 cm (assembled)', priceDelta: 0 },
-      { id: 'short', label: '~70 cm (wakizashi scale)', priceDelta: -15 },
+      { id: 'short', label: '~70 cm (wakizashi scale)', priceDelta: -1200 },
     ],
   },
   {
@@ -132,7 +132,7 @@ export const products: Product[] = [
     slug: 'oni-half-mask',
     name: 'Oni Half-Mask',
     collection: 'Cosplay',
-    price: 32,
+    price: 2560,
     shortDescription: 'Wearable half-mask with horn accents.',
     description:
       'Lightweight cosplay half-mask designed for elastic strap (strap not included). Smooth exterior ready for paint or weathering. Comfortable PLA or flexible TPU options.',
@@ -144,7 +144,7 @@ export const products: Product[] = [
     sizes: [
       { id: 's', label: 'Small', priceDelta: 0 },
       { id: 'm', label: 'Medium', priceDelta: 0 },
-      { id: 'l', label: 'Large', priceDelta: 4 },
+      { id: 'l', label: 'Large', priceDelta: 320 },
     ],
   },
   {
@@ -152,7 +152,7 @@ export const products: Product[] = [
     slug: 'plate-pauldrons-pair',
     name: 'Plate Pauldrons (Pair)',
     collection: 'Cosplay',
-    price: 48,
+    price: 3840,
     shortDescription: 'Shoulder armor pair for LARP / photoshoots.',
     description:
       'Articulated-look pauldrons printed as a pair. Lightweight PLA with optional PETG for tougher wear. Mounting holes for straps. Costume use only.',
@@ -162,7 +162,7 @@ export const products: Product[] = [
     colors: ['Gunmetal', 'Silver', 'Matte Black', 'Bone White'],
     sizes: [
       { id: 'm', label: 'Standard', priceDelta: 0 },
-      { id: 'l', label: 'Large', priceDelta: 10 },
+      { id: 'l', label: 'Large', priceDelta: 800 },
     ],
   },
   {
@@ -170,7 +170,7 @@ export const products: Product[] = [
     slug: 'crown-of-embers',
     name: 'Crown of Embers',
     collection: 'Cosplay',
-    price: 38,
+    price: 3040,
     shortDescription: 'Fantasy crown with flame-spike silhouette.',
     description:
       'Statement fantasy crown for photos and stage. Hollow lightweight build. Paint-ready surface. Adjustable with foam padding (padding not included).',
@@ -180,7 +180,7 @@ export const products: Product[] = [
     colors: ['Ember Red', 'Gold-ish (Bone White + paint)', 'Matte Black', 'Silver'],
     sizes: [
       { id: 'm', label: 'Adult', priceDelta: 0 },
-      { id: 's', label: 'Youth', priceDelta: -6 },
+      { id: 's', label: 'Youth', priceDelta: -480 },
     ],
   },
   {
@@ -188,7 +188,7 @@ export const products: Product[] = [
     slug: 'hex-tower-shield',
     name: 'Hex Tower Shield (Prop)',
     collection: 'Props',
-    price: 55,
+    price: 4400,
     shortDescription: 'Decorative tower shield for display & photos.',
     description:
       'Large decorative shield prop with hexagonal motif. Wall-mount friendly. Not for combat or LARP striking — display and photography use.',
@@ -199,7 +199,7 @@ export const products: Product[] = [
     colors: ['Gunmetal', 'Matte Black', 'Forest Green', 'Silver'],
     sizes: [
       { id: 'm', label: '60 cm tall', priceDelta: 0 },
-      { id: 'l', label: '80 cm tall', priceDelta: 22 },
+      { id: 'l', label: '80 cm tall', priceDelta: 1760 },
     ],
   },
   {
@@ -207,7 +207,7 @@ export const products: Product[] = [
     slug: 'arcane-staff-head',
     name: 'Arcane Staff Head',
     collection: 'Props',
-    price: 29,
+    price: 2320,
     shortDescription: 'Ornate staff finial — attach to your own shaft.',
     description:
       'Print-ready staff head with spiral cage and gem seat (gem not included). Socket fits common 22–25 mm dowels. Cosplay / photo prop.',
@@ -224,7 +224,7 @@ export const products: Product[] = [
     slug: 'dagger-display-replica',
     name: 'Dagger Display Replica',
     collection: 'Props',
-    price: 24,
+    price: 1920,
     shortDescription: 'Blunt decorative dagger with stand — prop only.',
     description:
       'Fully blunt decorative dagger replica with optional desktop stand. Plastic prop for display and cosplay. Not a weapon; tip and edges are rounded.',
@@ -241,7 +241,7 @@ export const products: Product[] = [
     slug: 'workshop-bench-figure',
     name: 'Workshop Artisan Figure',
     collection: 'Figurines',
-    price: 34,
+    price: 2720,
     shortDescription: 'Maker at a workbench — nod to the craft.',
     description:
       'Charming artisan figure with tiny tools and a print bench. A gift for fellow makers. Multi-part print assembled and glued before shipping.',
@@ -251,7 +251,7 @@ export const products: Product[] = [
     colors: ['Bone White', 'Matte Black', 'Custom (note color)'],
     sizes: [
       { id: 's', label: '10 cm', priceDelta: 0 },
-      { id: 'm', label: '15 cm', priceDelta: 12 },
+      { id: 'm', label: '15 cm', priceDelta: 960 },
     ],
   },
 ];

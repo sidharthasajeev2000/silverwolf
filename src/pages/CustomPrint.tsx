@@ -3,7 +3,7 @@ import { useCallback, useMemo, useState } from 'react';
 import { OrderForm } from '../components/OrderForm';
 import { getLivePricing } from '../utils/store';
 import { parseStlFile, type StlParseOutcome } from '../utils/stlParser';
-import { estimateQuote, formatUsd } from '../utils/quote';
+import { estimateQuote, formatInr } from '../utils/quote';
 import { buildCustomOrderSummary } from '../utils/orderSubmit';
 
 export function CustomPrint() {
@@ -233,10 +233,10 @@ export function CustomPrint() {
                   </div>
                   <div className="quote-stat">
                     <span>Unit (approx.)</span>
-                    <span>{formatUsd(quote.unitPrice)}</span>
+                    <span>{formatInr(quote.unitPrice)}</span>
                   </div>
                 </div>
-                <div className="quote-total">{formatUsd(quote.totalPrice)}</div>
+                <div className="quote-total">{formatInr(quote.totalPrice)}</div>
                 <p className="hint">
                   Approx. for {quantity}× — final invoice may change for supports, orientation, or
                   finishing. Rates editable in admin Pricing (or <code>src/data/pricing.ts</code>).

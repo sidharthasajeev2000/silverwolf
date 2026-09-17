@@ -93,7 +93,7 @@ export function buildProductOrderSummary(opts: {
     `Color: ${opts.color}`,
     `Size: ${opts.size}`,
     `Quantity: ${opts.quantity}`,
-    `Listed unit price: $${opts.unitPrice.toFixed(2)} (final invoice may vary)`,
+    `Listed unit price: ₹${opts.unitPrice.toFixed(0)} (final invoice may vary)`,
     '',
     `Name: ${opts.name}`,
     `Email: ${opts.email}`,
@@ -130,7 +130,7 @@ export function buildCustomOrderSummary(opts: {
   ];
   if (opts.volumeCm3 != null) lines.push(`Est. volume: ${opts.volumeCm3} cm³`);
   if (opts.estimatedGrams != null) lines.push(`Est. mass: ${opts.estimatedGrams} g`);
-  if (opts.quotedTotal != null) lines.push(`Rough quote total: $${opts.quotedTotal.toFixed(2)}`);
+  if (opts.quotedTotal != null) lines.push(`Rough quote total: ₹${opts.quotedTotal.toFixed(0)}`);
   if (opts.parseNote) lines.push(`Parse note: ${opts.parseNote}`);
   lines.push(
     '',

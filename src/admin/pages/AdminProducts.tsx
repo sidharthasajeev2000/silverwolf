@@ -6,7 +6,7 @@ import {
   type ProductVariant,
 } from '../../data/products';
 import { getLiveProducts, resetProducts, saveProducts } from '../../utils/store';
-import { formatUsd } from '../../utils/quote';
+import { formatInr } from '../../utils/quote';
 
 const ART_OPTIONS: Product['art'][] = [
   'wolf',
@@ -170,7 +170,7 @@ export function AdminProducts() {
             <div>
               <strong>{p.name}</strong>
               <span className="hint">
-                {p.collection} · {formatUsd(p.price)} · /{p.slug}
+                {p.collection} · {formatInr(p.price)} · /{p.slug}
                 {p.featured ? ' · featured' : ''}
               </span>
             </div>
@@ -260,7 +260,7 @@ function ProductEditor({
           </select>
         </div>
         <div className="field">
-          <label htmlFor="pprice">Price (USD)</label>
+          <label htmlFor="pprice">Price (₹)</label>
           <input
             id="pprice"
             type="number"

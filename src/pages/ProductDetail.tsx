@@ -3,7 +3,7 @@ import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { OrderForm } from '../components/OrderForm';
 import { ProductPhoto } from '../components/ProductPhoto';
 import { getLiveProducts } from '../utils/store';
-import { formatUsd } from '../utils/quote';
+import { formatInr } from '../utils/quote';
 import { buildCustomizeSummary, buildProductOrderSummary } from '../utils/orderSubmit';
 
 export function ProductDetail() {
@@ -85,9 +85,9 @@ export function ProductDetail() {
               </p>
             ) : null}
             <p className="detail-price price">
-              {formatUsd(unitPrice * quantity)}
+              {formatInr(unitPrice * quantity)}
               {quantity > 1 ? (
-                <span className="hint"> ({quantity} × {formatUsd(unitPrice)})</span>
+                <span className="hint"> ({quantity} × {formatInr(unitPrice)})</span>
               ) : null}
             </p>
 
@@ -137,7 +137,7 @@ export function ProductDetail() {
                     onClick={() => setSizeId(s.id)}
                   >
                     {s.label}
-                    {s.priceDelta ? ` (${s.priceDelta > 0 ? '+' : ''}${formatUsd(s.priceDelta)})` : ''}
+                    {s.priceDelta ? ` (${s.priceDelta > 0 ? '+' : ''}${formatInr(s.priceDelta)})` : ''}
                   </button>
                 ))}
               </div>

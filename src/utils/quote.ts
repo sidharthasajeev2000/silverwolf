@@ -41,9 +41,14 @@ function round(n: number, places: number): number {
 }
 
 function roundMoney(n: number): number {
-  return Math.round(n * 100) / 100;
+  return Math.round(n);
 }
 
-export function formatUsd(n: number): string {
-  return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(n);
+/** Format as Indian rupees (₹). */
+export function formatInr(n: number): string {
+  return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
 }
+
+/** @deprecated use formatInr */
+export const formatUsd = formatInr;
+

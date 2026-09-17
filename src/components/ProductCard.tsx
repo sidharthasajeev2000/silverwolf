@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import type { Product } from '../data/products';
 import { ProductPhoto } from './ProductPhoto';
-import { formatUsd } from '../utils/quote';
+import { formatInr } from '../utils/quote';
 
 export function ProductCard({ product }: { product: Product }) {
   return (
@@ -13,7 +13,7 @@ export function ProductCard({ product }: { product: Product }) {
         <div className="product-card-body">
           <div className="product-card-meta">
             <span className="badge">{product.collection}</span>
-            <span className="price">{formatUsd(product.price)}</span>
+            <span className="price">{formatInr(product.price)}</span>
           </div>
           <h3>{product.name}</h3>
           <p>{product.shortDescription}</p>

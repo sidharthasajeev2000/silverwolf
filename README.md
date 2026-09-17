@@ -40,7 +40,7 @@ npm run dev
 | What | File |
 |------|------|
 | Products (catalog seed) | `src/data/products.ts` |
-| Filament $/g, markup, minimum, densities | `src/data/pricing.ts` |
+| Filament ₹/g, markup, minimum, densities | `src/data/pricing.ts` |
 | Shop name, order/contact email | `src/data/config.ts` |
 | FAQ copy | `src/data/faq.ts` |
 
@@ -108,7 +108,7 @@ SPA rewrites: ensure all routes fall back to `index.html` (Vercel does this for 
 | `/admin` | Admin overview |
 | `/admin/orders` | Orders inbox (custom + catalog) |
 | `/admin/products` | Catalog overlay editor |
-| `/admin/pricing` | Filament $/g, markup, minimum |
+| `/admin/pricing` | Filament ₹/g, markup, minimum |
 
 ## Scripts
 

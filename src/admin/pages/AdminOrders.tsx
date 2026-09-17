@@ -7,7 +7,7 @@ import {
   type OrderStatus,
   type StoredOrder,
 } from '../../utils/store';
-import { formatUsd } from '../../utils/quote';
+import { formatInr } from '../../utils/quote';
 
 type Filter = 'all' | 'custom' | 'catalog' | 'customize';
 
@@ -244,7 +244,7 @@ function OrderCard({
                 {' · '}
                 {estimatedGrams != null ? `${estimatedGrams} g` : '— g'}
                 {' · '}
-                {quotedTotal != null ? formatUsd(quotedTotal) : '— quote'}
+                {quotedTotal != null ? formatInr(quotedTotal) : '— quote'}
               </dd>
             </div>
           </>
@@ -259,7 +259,7 @@ function OrderCard({
                   ? ` · ${[material, color].filter(Boolean).join(' · ')}`
                   : ''}
                 {quantity != null ? ` · qty ${quantity}` : ''}
-                {unitPrice != null ? ` · ${formatUsd(unitPrice)}` : ''}
+                {unitPrice != null ? ` · ${formatInr(unitPrice)}` : ''}
               </dd>
             </div>
           </>

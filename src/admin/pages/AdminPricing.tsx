@@ -35,14 +35,14 @@ export function AdminPricing() {
       <header className="admin-page-header">
         <h1>Pricing</h1>
         <p>
-          Custom-print quote rates. Formula: max(minimum, grams × filament $/g × markup). Changes
+          Custom-print quote rates. Formula: max(minimum, grams × filament ₹/g × markup). Changes
           apply via localStorage overlay.
         </p>
       </header>
 
       <form className="admin-panel" onSubmit={onSave} style={{ maxWidth: 480 }}>
         <div className="field">
-          <label htmlFor="filament">Filament $/g</label>
+          <label htmlFor="filament">Filament ₹/g</label>
           <input
             id="filament"
             type="number"
@@ -64,7 +64,7 @@ export function AdminPricing() {
           />
         </div>
         <div className="field">
-          <label htmlFor="minimum">Minimum (USD)</label>
+          <label htmlFor="minimum">Minimum (₹)</label>
           <input
             id="minimum"
             type="number"
