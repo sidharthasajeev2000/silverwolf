@@ -448,3 +448,42 @@
     transform: none !important;
   }
 }
+
+/* Neon letter cloth (Scrolltide-style curtain weave) */
+.cloth-field {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.72;
+}
+
+/* Keep UI above cloth */
+.site-shell {
+  z-index: 2;
+}
+
+/* Soften older orb/grid so cloth reads as the main effect */
+.scene-bg__orb {
+  opacity: 0.35;
+}
+.scene-bg__grid {
+  opacity: 0.22;
+}
+.scene-bg__dust {
+  opacity: 0.2;
+}
+
+@media (max-width: 700px) {
+  .cloth-field {
+    opacity: 0.62;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cloth-field {
+    opacity: 0.4;
+  }
+}
