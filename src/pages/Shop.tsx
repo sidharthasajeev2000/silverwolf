@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import { ProductCard } from '../components/ProductCard';
 import { collections, type Collection } from '../data/products';
 import { getLiveProducts } from '../utils/store';
+import { Seo } from '../components/Seo';
 
 const filters: Array<'All' | Collection> = ['All', ...collections];
 
@@ -23,6 +24,12 @@ export function Shop() {
   }
 
   return (
+    <>
+      <Seo
+        title="Shop 3D prints"
+        description="Browse Silverwolf 3D-printed figurines, cosplay props, and display replicas. Prices in ₹. Request a premade print or customize."
+        path="/shop"
+      />
     <div className="page">
       <div className="container">
         <header className="page-header">
@@ -65,5 +72,6 @@ export function Shop() {
         )}
       </div>
     </div>
+    </>
   );
 }

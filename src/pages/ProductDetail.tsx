@@ -5,6 +5,7 @@ import { ProductPhoto } from '../components/ProductPhoto';
 import { getLiveProducts } from '../utils/store';
 import { formatInr } from '../utils/quote';
 import { buildCustomizeSummary, buildProductOrderSummary } from '../utils/orderSubmit';
+import { Seo } from '../components/Seo';
 
 export function ProductDetail() {
   const { slug } = useParams();
@@ -37,6 +38,12 @@ export function ProductDetail() {
   if (!product) {
     return (
       <div className="page">
+        <Seo
+          title="Product not found"
+          description="That product is not in the Silverwolf catalog."
+          path={slug ? `/shop/${slug}` : '/shop'}
+          noIndex
+        />
         <div className="container">
           <h1>Product not found</h1>
           <p className="prose">That slug is not in the catalog.</p>
@@ -49,6 +56,23 @@ export function ProductDetail() {
   }
 
   const unitPrice = product.price + (size?.priceDelta ?? 0);
+  const productJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: product.name,
+    description: product.shortDescription || product.description,
+    image: product.imageUrl || 'https://silverwolf.in/logo-mark.jpg',
+    sku: product.slug,
+    brand: { '@type': 'Brand', name: 'Silverwolf' },
+    offers: {
+      '@type': 'Offer',
+      url: `https://silverwolf.in/shop/${product.slug}`,
+      priceCurrency: 'INR',
+      price: String(unitPrice),
+      availability: 'https://schema.org/PreOrder',
+    },
+  };
+
 
   function setMode(next: 'listed' | 'customize') {
     if (next === 'customize') setParams({ customize: '1' });
@@ -57,6 +81,14 @@ export function ProductDetail() {
 
   return (
     <div className="page">
+      <Seo
+        title={product.name}
+        description={product.shortDescription || `${product.name} — 3D print from Silverwolf. Prices in ₹.`}
+        path={`/shop/${product.slug}`}
+        type="product"
+        image={product.imageUrl || 'https://silverwolf.in/logo-mark.jpg'}
+        jsonLd={productJsonLd}
+      />
       <div className="container">
         <p className="hint" style={{ marginBottom: '1rem' }}>
           <Link to="/shop">Shop</Link> / {product.collection} / {product.name}

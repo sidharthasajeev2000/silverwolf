@@ -1,8 +1,15 @@
 import { Link } from 'react-router-dom';
 import { siteConfig } from '../data/config';
+import { Seo } from '../components/Seo';
 
 export function About() {
   return (
+    <>
+      <Seo
+        title="About Silverwolf"
+        description="Silverwolf is a 3D print workshop for figurines, cosplay props, and custom STL prints. Order requests in ₹ — invoice before payment."
+        path="/about"
+      />
     <div className="page">
       <div className="container">
         <header className="page-header">
@@ -37,5 +44,6 @@ export function About() {
         </div>
       </div>
     </div>
+    </>
   );
 }

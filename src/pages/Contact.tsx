@@ -2,6 +2,7 @@ import { useState, type FormEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { siteConfig } from '../data/config';
 import { submitOrder } from '../utils/orderSubmit';
+import { Seo } from '../components/Seo';
 
 export function Contact() {
   const [name, setName] = useState('');
@@ -50,6 +51,12 @@ export function Contact() {
   }
 
   return (
+    <>
+      <Seo
+        title="Contact"
+        description="Contact Silverwolf about a 3D print order, custom STL quote, or cosplay prop. Messages go to admin@silverwolf.in."
+        path="/contact"
+      />
     <div className="page">
       <div className="container" style={{ maxWidth: 640 }}>
         <header className="page-header">
@@ -139,5 +146,6 @@ export function Contact() {
         )}
       </div>
     </div>
+    </>
   );
 }

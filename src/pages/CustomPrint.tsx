@@ -5,6 +5,7 @@ import { getLivePricing } from '../utils/store';
 import { parseStlFile, type StlParseOutcome } from '../utils/stlParser';
 import { estimateQuote, formatInr } from '../utils/quote';
 import { buildCustomOrderSummary } from '../utils/orderSubmit';
+import { Seo } from '../components/Seo';
 
 export function CustomPrint() {
   const pricing = getLivePricing();
@@ -49,6 +50,12 @@ export function CustomPrint() {
   }
 
   return (
+    <>
+      <Seo
+        title="Custom STL print quote"
+        description="Upload a binary STL for a rough volume-based quote in ₹, or paste a file link. Silverwolf custom 3D print requests."
+        path="/custom"
+      />
     <div className="page">
       <div className="container">
         <header className="page-header">
@@ -252,5 +259,6 @@ export function CustomPrint() {
         </div>
       </div>
     </div>
+    </>
   );
 }

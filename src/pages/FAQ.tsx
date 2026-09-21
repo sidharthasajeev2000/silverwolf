@@ -1,7 +1,14 @@
 import { faqItems } from '../data/faq';
+import { Seo } from '../components/Seo';
 
 export function FAQ() {
   return (
+    <>
+      <Seo
+        title="FAQ"
+        description="Answers about Silverwolf 3D prints: lead times, materials, custom STL quotes, shipping, and invoicing in ₹."
+        path="/faq"
+      />
     <div className="page">
       <div className="container">
         <header className="page-header">
@@ -18,5 +25,6 @@ export function FAQ() {
         </div>
       </div>
     </div>
+    </>
   );
 }

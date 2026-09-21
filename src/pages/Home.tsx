@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { ProductCard } from '../components/ProductCard';
 import { siteConfig } from '../data/config';
 import { getLiveProducts } from '../utils/store';
+import { Seo } from '../components/Seo';
+import { siteJsonLd } from '../utils/seo';
 
 export function Home() {
   const featured = getLiveProducts()
@@ -10,6 +12,12 @@ export function Home() {
 
   return (
     <>
+      <Seo
+        title="Silverwolf — 3D Print Shop India | Figurines, Cosplay & Custom STL"
+        description="3D-printed figurines, cosplay props, and custom STL prints from Silverwolf. Browse the catalog or request a quote in ₹ — invoice before payment."
+        path="/"
+        jsonLd={siteJsonLd}
+      />
       <section className="hero">
         <div className="container hero-grid">
           <div>

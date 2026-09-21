@@ -1,5 +1,13 @@
+import { Seo } from '../components/Seo';
+
 export function Policies() {
   return (
+    <>
+      <Seo
+        title="Policies"
+        description="Silverwolf order, custom print, shipping, and invoice policies. No payment is collected on this site."
+        path="/policies"
+      />
     <div className="page">
       <div className="container">
         <header className="page-header">
@@ -60,5 +68,6 @@ export function Policies() {
         </div>
       </div>
     </div>
+    </>
   );
 }
