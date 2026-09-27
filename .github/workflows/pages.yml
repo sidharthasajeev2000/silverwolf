@@ -22,6 +22,16 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: cp dist/index.html dist/404.html
+      - name: Static HTML per route so crawlers get HTTP 200
+        run: |
+          for url in $(grep -o '<loc>[^<]*' dist/sitemap.xml | sed 's#<loc>https://silverwolf.in##'); do
+            [ "$url" = "/" ] && continue
+            mkdir -p "dist$(dirname "$url")"
+            sed -e "s#rel=\"canonical\" href=\"https://silverwolf.in/\"#rel=\"canonical\" href=\"https://silverwolf.in$url\"#" \
+                -e "s#property=\"og:url\" content=\"https://silverwolf.in/\"#property=\"og:url\" content=\"https://silverwolf.in$url\"#" \
+                dist/index.html > "dist$url.html"
+            echo "wrote dist$url.html"
+          done
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
