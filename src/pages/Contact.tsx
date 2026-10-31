@@ -1,12 +1,13 @@
 import { useState, type FormEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { siteConfig } from '../data/config';
-import { submitOrder } from '../utils/orderSubmit';
+import { submitOrder, isValidPhone } from '../utils/orderSubmit';
 import { Seo } from '../components/Seo';
 
 export function Contact() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
   const [message, setMessage] = useState('');
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'fallback' | 'error'>('idle');
   const [error, setError] = useState('');
@@ -16,8 +17,12 @@ export function Contact() {
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
     setError('');
-    if (!name.trim() || !email.trim() || !message.trim()) {
-      setError('Name, email, and a message are required.');
+    if (!name.trim() || !email.trim() || !phone.trim() || !message.trim()) {
+      setError('Name, email, phone, and a message are required.');
+      return;
+    }
+    if (!isValidPhone(phone)) {
+      setError('Enter a valid phone number (at least 10 digits).');
       return;
     }
     setStatus('sending');
@@ -26,6 +31,7 @@ export function Contact() {
       '---------------------------',
       `Name: ${name.trim()}`,
       `Email: ${email.trim()}`,
+      `Phone: ${phone.trim()}`,
       '',
       message.trim(),
     ].join('\n');
@@ -33,6 +39,7 @@ export function Contact() {
       type: 'contact',
       name: name.trim(),
       email: email.trim(),
+      phone: phone.trim(),
       shippingCountry: 'n/a',
       details: message.trim(),
       summary: body,
@@ -111,6 +118,20 @@ export function Contact() {
                   required
                 />
               </div>
+            </div>
+            <div className="field">
+              <label htmlFor="contact-phone">Phone number *</label>
+              <input
+                id="contact-phone"
+                name="phone"
+                type="tel"
+                inputMode="tel"
+                autoComplete="tel"
+                placeholder="+91 98765 43210"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                required
+              />
             </div>
             <div className="field">
               <label htmlFor="contact-message">Message *</label>

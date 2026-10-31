@@ -193,6 +193,7 @@ function OrderCard({
           <dt>Customer</dt>
           <dd>
             {p.name} · <a href={`mailto:${p.email}`}>{p.email}</a>
+            {p.phone ? <> · <a href={`tel:${String(p.phone)}`}>{String(p.phone)}</a></> : null}
             {p.shippingCountry && p.shippingCountry !== 'n/a' ? ` · ${p.shippingCountry}` : ''}
           </dd>
         </div>

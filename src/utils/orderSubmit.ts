@@ -5,10 +5,15 @@ export interface OrderPayload {
   type: 'product-request' | 'custom-print' | 'customize-request' | 'contact';
   name: string;
   email: string;
+  phone?: string;
   shippingCountry: string;
   details: string;
   summary: string;
   [key: string]: unknown;
+}
+
+export function isValidPhone(v: string): boolean {
+  return v.replace(/\D/g, '').length >= 10;
 }
 
 export type SubmitResult =
@@ -34,6 +39,7 @@ export async function submitOrder(payload: OrderPayload): Promise<SubmitResult> 
         body: JSON.stringify({
           name: payload.name,
           email: payload.email,
+          phone: payload.phone,
           message: payload.summary,
           type: payload.type,
           shippingCountry: payload.shippingCountry,

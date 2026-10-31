@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import { siteConfig } from '../data/config';
-import { submitOrder, type OrderPayload } from '../utils/orderSubmit';
+import { submitOrder, isValidPhone, type OrderPayload } from '../utils/orderSubmit';
 
 interface Props {
   buildPayload: (contact: {
@@ -16,6 +16,7 @@ interface Props {
 export function OrderForm({ buildPayload, submitLabel = 'Submit order request', validate }: Props) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
   const [shippingCountry, setShippingCountry] = useState('');
   const [notes, setNotes] = useState('');
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'fallback' | 'error'>('idle');
@@ -27,8 +28,12 @@ export function OrderForm({ buildPayload, submitLabel = 'Submit order request', 
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
     setError('');
-    if (!name.trim() || !email.trim() || !shippingCountry.trim()) {
-      setError('Name, email, and shipping country are required.');
+    if (!name.trim() || !email.trim() || !phone.trim() || !shippingCountry.trim()) {
+      setError('Name, email, phone, and shipping country are required.');
+      return;
+    }
+    if (!isValidPhone(phone)) {
+      setError('Enter a valid phone number (at least 10 digits).');
       return;
     }
     const extra = validate?.();
@@ -37,12 +42,17 @@ export function OrderForm({ buildPayload, submitLabel = 'Submit order request', 
       return;
     }
     setStatus('sending');
-    const payload = buildPayload({
+    const built = buildPayload({
       name: name.trim(),
       email: email.trim(),
       shippingCountry: shippingCountry.trim(),
       notes: notes.trim(),
     });
+    const payload: OrderPayload = {
+      ...built,
+      phone: phone.trim(),
+      summary: built.summary.replace(/^(Email: .*)$/m, `$1\nPhone: ${phone.trim()}`),
+    };
     const result = await submitOrder(payload);
     if (result.mode === 'endpoint') {
       if (result.ok) {
@@ -126,6 +136,20 @@ export function OrderForm({ buildPayload, submitLabel = 'Submit order request', 
             required
           />
         </div>
+      </div>
+      <div className="field">
+        <label htmlFor="order-phone">Phone number *</label>
+        <input
+          id="order-phone"
+          name="phone"
+          type="tel"
+          inputMode="tel"
+          autoComplete="tel"
+          placeholder="+91 98765 43210"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          required
+        />
       </div>
       <div className="field">
         <label htmlFor="order-country">Shipping country *</label>
