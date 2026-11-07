@@ -1,18 +1,17 @@
 <!doctype html>
 <html lang="en-IN">
   <head>
+    <base href="%BASE_URL%" />
     <script>
       (function () {
         if (location.protocol === 'http:' && location.hostname === 'silverwolf.in') {
           location.replace('https://silverwolf.in' + location.pathname + location.search + location.hash);
           return;
         }
-        var project = location.hostname === 'sidharthasajeev2000.github.io';
-        document.write('<base href="' + (project ? '/silverwolf/' : '/') + '">');
       })();
     </script>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
